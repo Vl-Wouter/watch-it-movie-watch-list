@@ -29,3 +29,4 @@ After going to the app from the index page (using the "Go to app" button),users 
 * I will commit my code every time a feature is finished
 * Testing will be done during development with manual testing.
 * I will design the layout using Adobe XD
+* This project will be deployed on Github Pages
