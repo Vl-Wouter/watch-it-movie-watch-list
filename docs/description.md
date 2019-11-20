@@ -22,6 +22,7 @@ After going to the app from the index page (using the "Go to app" button),users 
 ## Tech Stack
 
 * No CSS framework (maybe SASS if I get to it)
+* Local Storage to save user favourites and watch status
 
 ## What will be your process?
 
