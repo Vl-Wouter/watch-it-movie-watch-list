@@ -1,0 +1,26 @@
+// Color functions
+@function watchtime-color($key: "primary") {
+  @return map-get($colors, $key);
+}
+
+$color-interval: 10%;
+
+@function watchtime-color-level($color-name: "primary", $level: 0) {
+  $color: watchtime-color($color-name);
+  $color-base: if($level < 0, black, white);
+
+  @return mix($color-base, $color, abs($level) * $color-interval);
+}
+
+@function watchtime-foreground-color($bgcolor, $threshold: 0.65) {
+  @return if(
+    lightness($bgcolor) >= $threshold,
+    watchtime-color("foreground"),
+    watchtime-color("background")
+  );
+}
+
+// Breakpoint functions
+@function breakpoint($key: "sm") {
+  @return map-get($bp, $key);
+}

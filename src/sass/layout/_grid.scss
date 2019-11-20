@@ -1,0 +1,31 @@
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  height: auto;
+}
+
+$columns: 12;
+
+@for $cols from 1 through $columns {
+  $colSize: $cols * (100% / 12);
+  .col-#{$cols} {
+    flex: 0 0 $colSize;
+  }
+}
+
+@each $breakname, $break in $bp {
+  @media screen and (min-width: $break) {
+    @for $cols from 1 through $columns {
+      $colSize: $cols * (100% / 12);
+      // Generic column per breakpoint
+      .col-#{$breakname}-#{$cols} {
+        flex: 0 0 $colSize;
+      }
+      // Offset columns
+      .offset-#{$breakname}-#{$cols} {
+        margin-left: $colSize;
+      }
+    }
+  }
+}

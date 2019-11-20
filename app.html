@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Watch It!</title>
+    <link rel="stylesheet" href="dist/app.css" />
+  </head>
+
+  <body>
+    <main class="app container -fluid">
+      <section class="row">
+        <aside class="col-lg-3 search -out">
+          <header class="searchHeader">
+            <h1>Watch It!</h1>
+            <button class="btn -text" id="closeSearch">
+              <i data-feather="x"></i>
+            </button>
+          </header>
+          <form action="" method="post" class="searchBar" id="searchForm">
+            <input
+              type="text"
+              name="movieTitle"
+              id="movieTitle"
+              placeholder="Search..."
+            />
+            <button type="submit" class="btn -primary">Search</button>
+          </form>
+          <main class="searchResults" id="searchResults"></main>
+        </aside>
+        <main class="col-12 col-lg-9 list">
+          <header class="listHeader">
+            <h2>My List</h2>
+            <button class="btn -text" id="openSearch">
+              <i data-feather="search"></i>
+            </button>
+          </header>
+          <section class="series">
+            <h4 class="text-light">Series</h4>
+          </section>
+          <section class="movies">
+            <h4 class="text-light">Movies</h4>
+          </section>
+        </main>
+      </section>
+      <!-- <aside class="search">
+        <h1>Watch It!</h1>
+        <form action="" class="searchBar" id="searchForm">
+          <input
+            type="text"
+            name="movie_title"
+            class="searchBar__input"
+            id="movieTitle"
+          />
+          <button type="submit" class="btn btn--primary" id="movieSubmit">
+            search
+          </button>
+        </form>
+        <section class="searchResults">
+          <div class="movie">
+            <div class="movie__poster"></div>
+          </div>
+          <div class="movie">
+            <div class="movie__poster"></div>
+          </div>
+          <div class="movie">
+            <div class="movie__poster"></div>
+          </div>
+        </section>
+      </aside> -->
+    </main>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="dist/app.js"></script>
+  </body>
+</html>

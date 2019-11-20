@@ -1,0 +1,15 @@
+.list {
+  padding: 8px 16px 32px 16px;
+
+  &Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}
+
+@include desktop-up {
+  #openSearch {
+    display: none;
+  }
+}

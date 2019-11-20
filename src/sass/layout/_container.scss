@@ -1,0 +1,21 @@
+.container {
+  width: 95%;
+  margin: 0 auto;
+  min-height: 100vh;
+
+  &.-fluid {
+    width: 100%;
+  }
+}
+
+@include tablet-up {
+  .container {
+    width: 80%;
+  }
+}
+
+@include desktop-up {
+  .container {
+    width: 70%;
+  }
+}

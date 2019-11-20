@@ -1,0 +1,38 @@
+@mixin btn-fill($color-name) {
+  &.-#{$color-name} {
+    $color: map-get($colors, $color-name);
+    $foreground: map-get($colors, "foreground");
+    background: $color;
+    color: $foreground;
+
+    &:hover {
+      background: lighten($color, 5%);
+    }
+  }
+}
+
+.btn {
+  border: none;
+  padding: 8px 16px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px #00000020;
+
+  @include btn-fill("primary");
+
+  &.-round {
+    padding: 8px;
+    border-radius: 50%;
+  }
+
+  &.-text {
+    background: none;
+    color: inherit;
+    transform: scale(1);
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
