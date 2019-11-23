@@ -36,10 +36,10 @@
     // padding: 0;
 
     &.-primary {
-      color: map-get($colors, "primary");
+      color: watch-color("primary");
 
       &:hover {
-        color: lighten(map-get($colors, "primary"), 10%);
+        color: watch-color-level("primary", 2);
       }
     }
   }

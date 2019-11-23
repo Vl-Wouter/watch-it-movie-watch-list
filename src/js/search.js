@@ -29,7 +29,6 @@ const fetchFromInput = (data) => new Promise((resolve, reject) => {
   fetch(`https://www.omdbapi.com/?apikey=c223f3f3&s=${title}`)
     .then((response) => response.json())
     .then((res) => {
-      console.log(res);
       const { Search: search } = res;
       if (search && search.length > 0) {
         resolve(filterResults(search));

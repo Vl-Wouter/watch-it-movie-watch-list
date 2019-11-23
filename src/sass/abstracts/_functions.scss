@@ -12,11 +12,15 @@ $color-interval: 10%;
   @return mix($color-base, $color, abs($level) * $color-interval);
 }
 
+@function watch-color-opacity($color, $level: 0) {
+  @return transparentize($color, ($level / 10));
+}
+
 @function watch-foreground-color($bgcolor, $threshold: 0.65) {
   @return if(
     lightness($bgcolor) >= $threshold,
-    watchtime-color("foreground"),
-    watchtime-color("background")
+    watch-color("foreground"),
+    watch-color("background")
   );
 }
 

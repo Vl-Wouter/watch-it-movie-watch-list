@@ -1,7 +1,3 @@
-@function watchtime-color($key: "primary") {
-  @return map-get($colors, $key);
-}
-
 @import "./abstracts/fonts", "./abstracts/variables", "./abstracts/functions",
   "./abstracts/mixins";
 

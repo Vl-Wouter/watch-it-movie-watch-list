@@ -1,11 +1,7 @@
-@function get-color($name: "primary") {
-  @return map-get($colors, $name);
-}
-
 body {
   height: 100vh;
-  background: map-get($colors, "background");
-  color: map-get($colors, "foreground");
+  background: watch-color("background");
+  color: watch-foreground-color(watch-color("background"));
 }
 
 a:link,
@@ -16,5 +12,5 @@ a:visited {
 }
 
 a:hover {
-  color: lighten(get-color("primary"), 10%);
+  color: watch-color-level("primary", 2);
 }
