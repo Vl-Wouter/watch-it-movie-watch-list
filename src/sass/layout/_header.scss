@@ -1,0 +1,60 @@
+.header {
+  width: 100%;
+  height: 104px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+
+  &__brand {
+    display: flex;
+    align-items: baseline;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: baseline;
+  }
+
+  &__text {
+    display: none;
+  }
+
+  &__logo {
+    font-size: 32px;
+    margin-right: 16px;
+  }
+
+  &__link {
+    cursor: pointer;
+    margin: 0 8px;
+
+    &.-desktop {
+      display: none;
+    }
+
+    &.-mobile {
+      display: block;
+    }
+
+    &:hover {
+      color: watch-color-level("primary", 2);
+    }
+  }
+}
+
+@media screen and (min-width: breakpoint("md")) {
+  .header__text {
+    display: block;
+  }
+
+  .header__link {
+    &.-desktop {
+      display: block;
+    }
+
+    &.-mobile {
+      display: none;
+    }
+  }
+}

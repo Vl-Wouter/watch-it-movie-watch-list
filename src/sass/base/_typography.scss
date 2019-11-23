@@ -1,17 +1,21 @@
 html,
 body {
-  font-family: $font-family;
+  font-family: $base-font-family;
   font-weight: 400;
   line-height: 1.5;
+
+  p {
+    margin-bottom: 8px;
+  }
 }
 
 @for $size from 1 through 6 {
   h#{$size} {
-    font-size: 34px / (($size) * 0.5) + 1;
-    font-family: $font-family;
+    font-size: 32px - ($size * $size) / 2;
+    font-family: $header-font-family;
     font-weight: 700;
     line-height: 1 + ($size * 0.1);
-    margin-bottom: 8px * (4 / $size);
+    margin-bottom: 8px + ($size * $size) / 2;
   }
 }
 

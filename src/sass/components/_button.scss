@@ -1,12 +1,12 @@
 @mixin btn-fill($color-name) {
-  &.-#{$color-name} {
-    $color: map-get($colors, $color-name);
-    $foreground: map-get($colors, "foreground");
-    background: $color;
-    color: $foreground;
+  &.-fill-#{$color-name} {
+    // $color: map-get($colors, $color-name);
+    // $foreground: map-get($colors, "foreground");
+    background: watch-color($color-name);
+    color: watch-foreground-color(watch-color($color-name));
 
     &:hover {
-      background: lighten($color, 5%);
+      background: watch-color-level($color-name, 2);
     }
   }
 }
@@ -14,10 +14,12 @@
 .btn {
   border: none;
   padding: 8px 16px;
+  margin: 8px 0;
   text-transform: uppercase;
   border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 5px 15px #00000020;
+  display: block;
 
   @include btn-fill("primary");
 
@@ -30,9 +32,15 @@
     background: none;
     color: inherit;
     transform: scale(1);
+    box-shadow: none;
+    // padding: 0;
 
-    &:hover {
-      transform: scale(1.1);
+    &.-primary {
+      color: map-get($colors, "primary");
+
+      &:hover {
+        color: lighten(map-get($colors, "primary"), 10%);
+      }
     }
   }
 }

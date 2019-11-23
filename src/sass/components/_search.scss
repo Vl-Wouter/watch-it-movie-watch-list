@@ -1,73 +1,20 @@
 .search {
-  background-color: lighten(map-get($colors, "background"), 10%);
-  height: 100vh;
-  padding: 8px 16px 32px 16px;
-  position: absolute;
+  display: flex;
+  background: watch-color-level("background", 1);
+  border-radius: 8px;
+  font-size: 20px;
   transition: all 200ms ease-in-out;
-  z-index: 99;
 
-  &Header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+  input {
+    background: none;
+    padding: 0 16px;
+    font-family: $base-font-family;
+    border: none;
+    color: watch-foreground-color(watch-color-level("background", 2));
   }
 
-  &.-out {
-    transform: translateX(-100%);
-    transition: all 200ms ease-in-out;
-  }
-
-  &Bar {
-    display: flex;
-    justify-content: space-between;
-    input {
-      flex: 1 0 70%;
-      border-radius: 8px 0 0 8px;
-      border: none;
-      padding: 0 8px;
-      background: lighten(map-get($colors, "background"), 25%);
-      color: map-get($colors, "foreground");
-      font-family: $font-family;
-    }
-
-    button {
-      border-radius: 0 8px 8px 0;
-    }
-  }
-
-  &Results {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    height: 85%;
-    margin-top: 5%;
-    overflow: auto;
-
-    &::-webkit-scrollbar {
-      background-color: map-get($colors, "background");
-    }
-  }
-}
-
-@include tablet-up {
-  .search {
-    position: relative;
-    transform: translateX(0);
-
-    &.-out {
-      transform: translateX(0);
-    }
-
-    #closeSearch {
-      display: none;
-    }
-
-    &Bar {
-      input,
-      button {
-        flex-grow: 0;
-        border-radius: 8px;
-      }
-    }
+  .btn.-text {
+    padding: 0px 16px;
+    font-size: 24px;
   }
 }

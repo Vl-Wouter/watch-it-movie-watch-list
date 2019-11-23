@@ -10,6 +10,6 @@
 @import "./components/button", "./components/search", "./components/list",
   "./components/movie";
 
-@import "./layout/container", "./layout/grid";
+@import "./layout/container", "./layout/grid", "./layout/header";
 
-@import "./pages/home";
+@import "./pages/home", "./pages/app";

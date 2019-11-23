@@ -1,19 +1,40 @@
-const searchForm = document.querySelector('#searchForm');
+const { localStorage } = window;
 
-const searchMovie = async (e) => {
-  if (e.preventDefault) e.preventDefault();
-  // Create form data from form
-  const search = new FormData(searchForm);
-  // Get movie title from form data
-  const query = search.get('movieTitle');
-  const response = await fetch(`https://www.omdbapi.com/?apikey=c223f3f3&s=${query}`);
-  const data = await response.json();
-  console.log(data);
-  // show the results in the search results
-  data.forEach((result) => {
-    addResult(result);
-  });
+const checkDuplicate = (item) => {
+  const { movies, series } = JSON.parse(localStorage.getItem('savedList'));
+  const { imdbID } = item;
+  let match;
+  if (item.Type === 'movie') {
+    match = movies.find((movie) => movie.imdbID === imdbID);
+  } else {
+    match = series.find((serie) => serie.imdbID === imdbID);
+  }
+
+  if (match) {
+    return true;
+  }
+  return false;
 };
 
+const filterResults = (data) => {
+  const typeFilter = data.filter((item) => item.Type === 'movie' || item.Type === 'series');
+  return typeFilter.filter((item) => !checkDuplicate(item));
+};
 
-searchForm.addEventListener('submit', searchMovie);
+const fetchFromInput = (data) => new Promise((resolve, reject) => {
+  const title = data.get('movieTitle');
+  fetch(`https://www.omdbapi.com/?apikey=c223f3f3&s=${title}`)
+    .then((response) => response.json())
+    .then((res) => {
+      console.log(res);
+      const { Search: search } = res;
+      if (search && search.length > 0) {
+        resolve(filterResults(search));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch((err) => reject(err));
+});
+
+export default fetchFromInput;

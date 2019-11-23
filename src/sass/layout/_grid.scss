@@ -3,6 +3,12 @@
   flex-flow: row wrap;
   width: 100%;
   height: auto;
+  padding: 0 16px;
+
+  &.-nowrap {
+    flex-flow: row nowrap;
+    overflow: auto;
+  }
 }
 
 $columns: 12;
