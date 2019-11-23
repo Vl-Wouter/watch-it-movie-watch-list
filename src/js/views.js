@@ -108,8 +108,10 @@ const createErrorView = (err) => {
   }
 
   const title = document.createElement('h3');
+  title.classList.add('text-center');
   title.innerHTML = `<span class="iconify" data-icon="twemoji:face-screaming-in-fear" data-inline="true"></span> ${errView.title}`;
   const message = document.createElement('p');
+  message.classList.add('text-center');
   message.innerText = errView.message;
   appContainer.appendChild(title);
   appContainer.appendChild(message);
@@ -138,10 +140,25 @@ const showList = () => {
   appContainer.appendChild(seriesRow);
 };
 
+const showIntro = () => {
+  resetApp();
+  const title = document.createElement('h3');
+  title.classList.add('text-center');
+  title.innerText = 'Welcome to Watch It!';
+
+  const subTitle = document.createElement('p');
+  subTitle.classList.add('text-center');
+  subTitle.innerText = 'Start adding movies by using the searchbar above!';
+
+  appContainer.appendChild(title);
+  appContainer.appendChild(subTitle);
+};
+
 export {
   resetApp,
   createGrid,
   createSearchResults,
   createErrorView,
   showList,
+  showIntro,
 };

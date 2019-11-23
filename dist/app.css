@@ -140,6 +140,9 @@ h6 {
 .text-light {
   font-weight: 400; }
 
+.text-center {
+  text-align: center; }
+
 .btn {
   border: none;
   padding: 8px 16px;

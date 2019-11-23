@@ -1,5 +1,14 @@
 const { localStorage } = window;
 
+const initList = () => {
+  const list = {
+    movies: [],
+    series: [],
+  };
+
+  localStorage.setItem('savedList', JSON.stringify(list));
+};
+
 const saveToList = (item) => {
   const list = JSON.parse(localStorage.getItem('savedList'));
   const { movies, series } = list;
@@ -33,6 +42,7 @@ const removeFromList = (type, id) => {
 };
 
 export {
+  initList,
   saveToList,
   fetchList,
   removeFromList,

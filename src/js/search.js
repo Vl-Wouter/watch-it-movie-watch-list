@@ -18,7 +18,10 @@ const checkDuplicate = (item) => {
 
 const filterResults = (data) => {
   const typeFilter = data.filter((item) => item.Type === 'movie' || item.Type === 'series');
-  return typeFilter.filter((item) => !checkDuplicate(item));
+  if (localStorage.getItem('savedList')) {
+    return typeFilter.filter((item) => !checkDuplicate(item));
+  }
+  return typeFilter;
 };
 
 const fetchFromInput = (data) => new Promise((resolve, reject) => {

@@ -1,5 +1,6 @@
 import fetchFromInput from './search';
 import { createSearchResults, createErrorView } from './views';
+import { initList } from './local';
 
 const resetFormInput = () => {
   document.querySelector('.search input').value = '';
@@ -19,6 +20,7 @@ const toggleSearchForm = () => {
     .then((results) => {
       resetFormInput();
       if (results.length > 0) {
+        initList();
         createSearchResults(results);
       } else {
         createErrorView('noResults');
