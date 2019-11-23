@@ -26,7 +26,7 @@ const toggleSearchForm = () => {
       }
     })
     .catch((err) => {
-      if (process.env.NODE_ENV !== 'production') console.error(err);
+      createErrorView('noResults');
     });
   window.removeEventListener('click', (e) => handleOutsideClick(e));
 };
