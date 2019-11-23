@@ -20,7 +20,6 @@ const toggleSearchForm = () => {
     .then((results) => {
       resetFormInput();
       if (results.length > 0) {
-        initList();
         createSearchResults(results);
       } else {
         createErrorView('noResults');

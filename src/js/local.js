@@ -10,6 +10,7 @@ const initList = () => {
 };
 
 const saveToList = (item) => {
+  if (!localStorage.getItem('savedList')) initList();
   const list = JSON.parse(localStorage.getItem('savedList'));
   const { movies, series } = list;
   const { Type: type } = item;

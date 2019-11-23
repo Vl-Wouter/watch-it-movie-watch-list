@@ -121,23 +121,31 @@ const showList = () => {
   resetApp();
   const { movies, series } = fetchList();
 
-  // Display movies
-  const movieRow = createGrid('row');
-  movieRow.classList.add('-nowrap');
-  movies.forEach((movie) => {
-    movieRow.appendChild(createMovie(movie, 'list'));
-  });
-  appContainer.appendChild(createTitle('Your Movies', 3));
-  appContainer.appendChild(movieRow);
+  if (movies.length === 0 && series.length === 0) {
+    showIntro();
+  }
 
-  // Display series
-  const seriesRow = createGrid('row');
-  seriesRow.classList.add('-nowrap');
-  series.forEach((serie) => {
-    seriesRow.appendChild(createMovie(serie, 'list'));
-  });
-  appContainer.appendChild(createTitle('Your Series', 3));
-  appContainer.appendChild(seriesRow);
+  if (movies.length > 0) {
+    // Display movies
+    const movieRow = createGrid('row');
+    movieRow.classList.add('-nowrap');
+    movies.forEach((movie) => {
+      movieRow.appendChild(createMovie(movie, 'list'));
+    });
+    appContainer.appendChild(createTitle('Your Movies', 3));
+    appContainer.appendChild(movieRow);
+  }
+
+  if (series.length > 0) {
+    // Display series
+    const seriesRow = createGrid('row');
+    seriesRow.classList.add('-nowrap');
+    series.forEach((serie) => {
+      seriesRow.appendChild(createMovie(serie, 'list'));
+    });
+    appContainer.appendChild(createTitle('Your Series', 3));
+    appContainer.appendChild(seriesRow);
+  }
 };
 
 const showIntro = () => {
