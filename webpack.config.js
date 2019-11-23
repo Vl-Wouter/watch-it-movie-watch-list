@@ -9,7 +9,7 @@ module.exports = {
     filename: 'app.js',
   },
 
-  mode: 'development',
+  mode: 'production',
 
   module: {
     rules: [
