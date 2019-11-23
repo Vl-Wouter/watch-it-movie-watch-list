@@ -81,7 +81,7 @@ const createMovie = (item, type = 'list') => {
 
 const createSearchResults = (results) => {
   resetApp();
-  const title = createTitle(`${results.length} results:`, 3);
+  const title = createTitle(`${results.length} result${results.length > 1 ? 's' : ''}:`, 3);
   const description = document.createElement('p');
   description.innerText = 'Click an item to add it to your list';
   const resultsRow = createGrid('row');
