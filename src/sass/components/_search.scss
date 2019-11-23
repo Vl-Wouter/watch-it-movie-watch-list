@@ -11,6 +11,14 @@
     font-family: $base-font-family;
     border: none;
     color: watch-foreground-color(watch-color-level("background", 2));
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &:focus-within {
+    outline: inherit;
   }
 
   .btn.-text {
