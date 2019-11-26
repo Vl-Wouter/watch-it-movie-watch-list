@@ -27,7 +27,11 @@
 
   &__link {
     cursor: pointer;
-    margin: 0 8px;
+    margin-left: 32px;
+
+    &.-active {
+      color: watch-color("primary");
+    }
 
     &.-desktop {
       display: none;

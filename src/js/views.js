@@ -2,6 +2,19 @@ import { saveToList, fetchList, removeFromList } from './local';
 
 
 const appContainer = document.querySelector('.app');
+const listLinks = document.querySelectorAll('.header__link');
+
+const toggleActiveListLink = (active) => {
+  if (active) {
+    listLinks.forEach((link) => {
+      link.classList.add('-active');
+    });
+  } else {
+    listLinks.forEach((link) => {
+      link.classList.remove('-active');
+    });
+  }
+};
 
 const resetApp = () => {
   appContainer.innerHTML = '';
@@ -31,7 +44,11 @@ const createMovie = (item, type = 'list') => {
 
   // Create image
   const moviePoster = document.createElement('img');
-  moviePoster.src = poster;
+  if (poster !== 'N/A') {
+    moviePoster.src = poster;
+  } else {
+    moviePoster.src = 'https://images.unsplash.com/photo-1524245510371-a10ac6be9ec9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80';
+  }
   moviePoster.classList.add('movie__poster');
   movieContainer.appendChild(moviePoster);
 
@@ -64,9 +81,12 @@ const createMovie = (item, type = 'list') => {
     const seenButton = document.createElement('button');
     seenButton.classList.add('btn', '-fill-primary');
     seenButton.innerHTML = 'Seen it';
-    seenButton.addEventListener('click', () => {
-      removeFromList(movieType, id);
-      showList();
+    seenButton.addEventListener('click', (e) => {
+      seenButton.closest('article').classList.add('-animate-out');
+      setTimeout(() => {
+        removeFromList(movieType, id);
+        showList();
+      }, 1000);
     });
 
     movieActions.appendChild(seenButton);
@@ -81,6 +101,7 @@ const createMovie = (item, type = 'list') => {
 
 const createSearchResults = (results) => {
   resetApp();
+  toggleActiveListLink(false);
   const title = createTitle(`${results.length} result${results.length > 1 ? 's' : ''}:`, 3);
   const description = document.createElement('p');
   description.innerText = 'Click an item to add it to your list';
@@ -121,6 +142,8 @@ const showList = () => {
   resetApp();
   const { movies, series } = fetchList();
 
+  toggleActiveListLink(true);
+
   if (movies.length === 0 && series.length === 0) {
     showIntro();
   }
@@ -152,7 +175,7 @@ const showIntro = () => {
   resetApp();
   const title = document.createElement('h3');
   title.classList.add('text-center');
-  title.innerText = 'Welcome to Watch It!';
+  title.innerText = 'Your list is empty!';
 
   const subTitle = document.createElement('p');
   subTitle.classList.add('text-center');
