@@ -20,7 +20,7 @@ const resetApp = () => {
   appContainer.innerHTML = '';
 };
 
-const createGrid = (type, size = 0) => {
+const createGrid = (type) => {
   let element;
   if (type === 'row') {
     element = document.createElement('section');
@@ -81,7 +81,7 @@ const createMovie = (item, type = 'list') => {
     const seenButton = document.createElement('button');
     seenButton.classList.add('btn', '-fill-primary');
     seenButton.innerHTML = 'Seen it';
-    seenButton.addEventListener('click', (e) => {
+    seenButton.addEventListener('click', () => {
       seenButton.closest('article').classList.add('-animate-out');
       setTimeout(() => {
         removeFromList(movieType, id);

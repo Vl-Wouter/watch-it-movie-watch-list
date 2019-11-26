@@ -1,10 +1,9 @@
 // import styles
 import '../sass/main.scss';
-import { toggleSearchForm } from './interaction';
+import toggleSearchForm from './interaction';
 import { showList, showIntro } from './views';
 
 const { localStorage } = window;
-const appContainer = document.querySelector('.app');
 const searchButton = document.querySelector('#searchBtn');
 const listButtons = document.querySelectorAll('.header__link');
 

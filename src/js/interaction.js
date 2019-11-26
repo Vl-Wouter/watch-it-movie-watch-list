@@ -17,11 +17,9 @@ const toggleSearchForm = () => {
         createErrorView('noResults');
       }
     })
-    .catch((err) => {
+    .catch(() => {
       createErrorView('noResults');
     });
 };
 
-export {
-  toggleSearchForm,
-};
+export default toggleSearchForm;
