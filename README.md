@@ -1,5 +1,5 @@
 # watch-it-movie-watch-list
-Watch It! A personal movie watchlist
+Watch It! A personal movie watchlist by [Wouter Vlaeyen](https://www.wouterv.be)
 
 ## Setup
 
